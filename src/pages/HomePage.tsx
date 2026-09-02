@@ -10,7 +10,7 @@ export function HomePage() {
     <AppShell>
       <section className="relative overflow-hidden border-b border-line">
         <div className="absolute inset-0 bg-gradient-to-br from-lime-soft/80 via-canvas to-forest/10" />
-        <div className="circuit-overlay absolute inset-0 opacity-70 sm:opacity-50" />
+        <div className="circuit-overlay absolute inset-0 opacity-50" />
 
         <div className="relative mx-auto flex min-h-[72dvh] max-w-5xl flex-col justify-center px-4 py-12 safe-px sm:min-h-[80dvh] sm:px-6 sm:py-20">
           <motion.p
