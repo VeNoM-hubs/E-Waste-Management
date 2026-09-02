@@ -32,6 +32,12 @@ Home hub (how the smart dustbin works): `/`
 - Framer Motion
 - lucide-react
 
+## Deploy (Vercel)
+
+This is a client-side React Router app. [`vercel.json`](vercel.json) rewrites all paths to `index.html` so QR links like `/batteries` work on refresh and direct open.
+
+After pushing this file, redeploy on Vercel (or wait for the automatic deploy from git).
+
 ## Scripts
 
 - `npm run dev` — development server

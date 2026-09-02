@@ -18,7 +18,7 @@ export function CategoryHero({ category }: CategoryHeroProps) {
           background: `linear-gradient(135deg, ${category.accent.accentSoft} 0%, var(--color-canvas) 55%, color-mix(in oklab, ${category.accent.accent} 18%, var(--color-canvas)) 100%)`,
         }}
       />
-      <div className="circuit-overlay absolute inset-0 opacity-60" />
+      <div className="circuit-overlay absolute inset-0 opacity-75 sm:opacity-60" />
 
       <div className="relative mx-auto grid min-h-[70dvh] max-w-5xl items-center gap-6 px-4 py-10 safe-px sm:min-h-[78dvh] sm:grid-cols-[1.1fr_0.9fr] sm:gap-8 sm:px-6 sm:py-16">
         <div className="order-2 sm:order-1">

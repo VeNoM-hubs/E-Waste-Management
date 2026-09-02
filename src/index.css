@@ -83,30 +83,72 @@
 
 @layer utilities {
   .mesh-bg {
+    --mesh-line: color-mix(in oklab, var(--color-ink) 16%, transparent);
+    --mesh-cell: 44px;
     background-color: var(--color-canvas);
     background-image:
       radial-gradient(ellipse 80% 50% at 10% -10%, color-mix(in oklab, var(--accent, var(--color-lime)) 28%, transparent), transparent 55%),
       radial-gradient(ellipse 60% 40% at 90% 0%, color-mix(in oklab, var(--color-forest) 12%, transparent), transparent 50%),
-      linear-gradient(var(--color-line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+      linear-gradient(var(--mesh-line) 1.5px, transparent 1.5px),
+      linear-gradient(90deg, var(--mesh-line) 1.5px, transparent 1.5px);
     background-size:
       auto,
       auto,
-      48px 48px,
-      48px 48px;
+      var(--mesh-cell) var(--mesh-cell),
+      var(--mesh-cell) var(--mesh-cell);
     background-position:
       0 0,
       0 0,
       -1px -1px,
       -1px -1px;
+    background-attachment: scroll;
   }
 
   .circuit-overlay {
+    --circuit-line: color-mix(in oklab, var(--accent, var(--color-lime)) 42%, transparent);
+    --circuit-line-soft: color-mix(in oklab, var(--accent, var(--color-lime)) 28%, transparent);
+    --circuit-cell: 26px;
     background-image:
-      linear-gradient(90deg, color-mix(in oklab, var(--accent, var(--color-lime)) 18%, transparent) 1px, transparent 1px),
-      linear-gradient(color-mix(in oklab, var(--accent, var(--color-lime)) 12%, transparent) 1px, transparent 1px);
-    background-size: 28px 28px;
-    mask-image: radial-gradient(ellipse 70% 60% at 70% 40%, black 20%, transparent 75%);
+      linear-gradient(90deg, var(--circuit-line) 1.5px, transparent 1.5px),
+      linear-gradient(var(--circuit-line-soft) 1.5px, transparent 1.5px);
+    background-size: var(--circuit-cell) var(--circuit-cell);
+    -webkit-mask-image: radial-gradient(ellipse 95% 85% at 55% 35%, #000 30%, transparent 78%);
+    mask-image: radial-gradient(ellipse 95% 85% at 55% 35%, #000 30%, transparent 78%);
+  }
+
+  /* Phones / high-DPR: strengthen grids so 1.5px lines stay visible */
+  @media (max-width: 640px) {
+    .mesh-bg {
+      --mesh-line: color-mix(in oklab, var(--color-ink) 26%, transparent);
+      --mesh-cell: 32px;
+      background-image:
+        radial-gradient(ellipse 90% 45% at 0% 0%, color-mix(in oklab, var(--accent, var(--color-lime)) 32%, transparent), transparent 58%),
+        radial-gradient(ellipse 70% 40% at 100% 0%, color-mix(in oklab, var(--color-forest) 14%, transparent), transparent 55%),
+        linear-gradient(var(--mesh-line) 2px, transparent 2px),
+        linear-gradient(90deg, var(--mesh-line) 2px, transparent 2px);
+    }
+
+    .circuit-overlay {
+      --circuit-line: color-mix(in oklab, var(--accent, var(--color-lime)) 55%, transparent);
+      --circuit-line-soft: color-mix(in oklab, var(--accent, var(--color-lime)) 40%, transparent);
+      --circuit-cell: 20px;
+      background-image:
+        linear-gradient(90deg, var(--circuit-line) 2px, transparent 2px),
+        linear-gradient(var(--circuit-line-soft) 2px, transparent 2px);
+      -webkit-mask-image: radial-gradient(ellipse 120% 100% at 50% 25%, #000 42%, transparent 88%);
+      mask-image: radial-gradient(ellipse 120% 100% at 50% 25%, #000 42%, transparent 88%);
+    }
+  }
+
+  @media (min-resolution: 2dppx) and (max-width: 640px) {
+    .mesh-bg {
+      --mesh-line: color-mix(in oklab, var(--color-ink) 30%, transparent);
+    }
+
+    .circuit-overlay {
+      --circuit-line: color-mix(in oklab, var(--accent, var(--color-lime)) 62%, transparent);
+      --circuit-line-soft: color-mix(in oklab, var(--accent, var(--color-lime)) 48%, transparent);
+    }
   }
 
   .text-balance {
