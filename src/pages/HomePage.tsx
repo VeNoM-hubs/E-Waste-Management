@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { QrCode } from "lucide-react";
+import { MapPinned, QrCode } from "lucide-react";
 import { AppShell } from "../components/layout/AppShell";
 import { SegregationFlow } from "../components/home/SegregationFlow";
 import { BinSelector } from "../components/home/BinSelector";
@@ -56,6 +56,13 @@ export function HomePage() {
             >
               <QrCode className="size-4" />
               Sample QR page
+            </Link>
+            <Link
+              to="/centres"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-forest/20 bg-white/70 px-6 py-3 text-sm font-bold text-forest backdrop-blur-sm transition-colors hover:border-forest/40"
+            >
+              <MapPinned className="size-4" />
+              Nearby centres
             </Link>
           </motion.div>
         </div>

@@ -122,3 +122,39 @@
     padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
   }
 }
+
+/* Leaflet map chrome */
+.leaflet-container {
+  font-family: var(--font-body);
+  background: var(--color-canvas);
+  z-index: 0;
+}
+
+.ecosort-user-marker,
+.ecosort-centre-marker {
+  background: transparent;
+  border: none;
+}
+
+.ecosort-user-dot {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin: 3px;
+  border-radius: 999px;
+  background: #b8f255;
+  border: 3px solid #0f3d2e;
+  box-shadow: 0 0 0 6px color-mix(in oklab, #b8f255 35%, transparent);
+}
+
+.ecosort-centre-pin {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: 4px auto 0;
+  border-radius: 50% 50% 50% 0;
+  background: #0f3d2e;
+  border: 2px solid #b8f255;
+  transform: rotate(-45deg);
+  box-shadow: 0 4px 10px color-mix(in oklab, #0f3d2e 35%, transparent);
+}

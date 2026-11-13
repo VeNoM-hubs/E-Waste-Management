@@ -24,12 +24,15 @@ Point each dustbin QR at these paths (use your deployed host in production):
 
 Home hub (how the smart dustbin works): `/`
 
+Nearby e-waste centres map (requests GPS): `/centres`
+
 ## Stack
 
 - Vite + React + TypeScript
 - React Router
 - Tailwind CSS
 - Framer Motion
+- Leaflet / react-leaflet (centres map)
 - lucide-react
 
 ## Deploy (Vercel)

@@ -4,9 +4,14 @@ import type { ReactNode } from "react";
 type AppShellProps = {
   children: ReactNode;
   accent?: string;
+  hideFooter?: boolean;
 };
 
-export function AppShell({ children, accent = "var(--color-lime)" }: AppShellProps) {
+export function AppShell({
+  children,
+  accent = "var(--color-lime)",
+  hideFooter = false,
+}: AppShellProps) {
   return (
     <div className="mesh-bg min-h-dvh" style={{ ["--accent" as string]: accent }}>
       <header className="sticky top-0 z-40 border-b border-line/80 bg-canvas/85 pt-[env(safe-area-inset-top)] backdrop-blur-md">
@@ -32,23 +37,31 @@ export function AppShell({ children, accent = "var(--color-lime)" }: AppShellPro
             >
               Bins
             </Link>
+            <Link
+              to="/centres"
+              className="rounded-md px-2 py-1 transition-colors hover:bg-forest/5 hover:text-forest"
+            >
+              Centres
+            </Link>
           </nav>
         </div>
       </header>
 
       <main>{children}</main>
 
-      <footer className="mt-16 border-t border-line bg-forest-deep text-canvas">
-        <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-8 sm:flex-row sm:items-end sm:justify-between sm:px-6">
-          <div>
-            <p className="font-display text-2xl font-bold text-lime">EcoSort</p>
-            <p className="mt-1 max-w-sm text-sm text-canvas/70">
-              Scan a dustbin QR to learn where each piece of e-waste belongs.
-            </p>
+      {!hideFooter && (
+        <footer className="mt-16 border-t border-line bg-forest-deep text-canvas">
+          <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-8 sm:flex-row sm:items-end sm:justify-between sm:px-6">
+            <div>
+              <p className="font-display text-2xl font-bold text-lime">EcoSort</p>
+              <p className="mt-1 max-w-sm text-sm text-canvas/70">
+                Scan a dustbin QR to learn where each piece of e-waste belongs.
+              </p>
+            </div>
+            <p className="text-xs text-canvas/50">Segregate · Recover · Recycle</p>
           </div>
-          <p className="text-xs text-canvas/50">Segregate · Recover · Recycle</p>
-        </div>
-      </footer>
+        </footer>
+      )}
     </div>
   );
 }
